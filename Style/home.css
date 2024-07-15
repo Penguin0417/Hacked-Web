@@ -57,7 +57,19 @@ header nav ul {
 header nav ul li {
     display: inline-block;
     position: relative;
+    animation: fadeIn 1s;
+  animation-fill-mode: backwards;
 }
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
 
 header nav ul li a {
     color: #fff;
