@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulnerable Website Demonstration</title>
-    <link rel="stylesheet" href="Style/add.css">
+    <link rel="stylesheet" href="Style/delete.css">
 </head>
 <body>
 <header>
@@ -23,35 +23,12 @@
     <h2>ADD STUDENT </h2>
     <h3>Fill the details to add student: </h3>
     <form class="containeer" action="" method="post">
-        <h1>Registeration Form</h1>
-        
-        <p>
-            Name: *<input type="text" name="realname" placeholder="Type Your Name.." required>
-        </p>
+        <h1>Delete Entry</h1>
+        <h3>Enter the roll no to delete that entry:</h3>
         <p>
             Roll No: *<input type="text" name="rollno" placeholder="Type Your Roll No" required>
         </p>
-        <p>
-            DOB: *<input type="date" id="dob" name="dob" required>
-        </p>
-        <!-- <fieldset>
-            <legend>Gender *</legend>
-            <p>
-                <input type="radio" name="gender" id="male" required> Male 
-                <input type="radio" name="gender" id="female" required>Female
-            </p>
-        </fieldset> -->
-        <p>
-            Branch *<input type="text" name="branch" id="branch" placeholder="Write Your Branch" required>
-        </p>
-        <p>
-            Email: *<input type="email" name="emailid" id="emailid" placeholder="Type Your Email" required>
-        </p>
-        <p>
-            Mobile No: *<input type="number" name="phoneno" placeholder="Type Your Phone number" required>
-        </p>
-        <hr>
-        <input type="submit" value="Register">
+        <input type="submit" value="Delete">
     </form>
 </div>
 <footer>
@@ -82,9 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Try to execute the query
         if (mysqli_stmt_execute($stmt)) {
             // No output before the header()
-            echo "<script>alert('You have successfully entered');</script>";
             header('Location: add.php');
-            
+            echo "<script>alert('You have successfully logged out!');</script>";
             exit; // Stop executing the script to prevent further output
         } else {
             $error = mysqli_stmt_error($stmt);

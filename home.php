@@ -13,8 +13,6 @@
         <ul>
             <li><a href="home.php">Home</a></li>
             <li><a href="retrive.php">Student info</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Announcement</a></li>
             <li><a href="#">About Us</a></li>
         </ul>
     </nav>
@@ -23,13 +21,13 @@
     <h2>Welcome to Student Management System </h2>
     <h3>Select what do you want to do:</h3>
     <ul>
-        <div class="container">
+        <div class="sub-container">
             <li><a href="add.php">Add Student</a></li>
         </div>
-        <div class="container">
+        <div class="sub-container">
             <li><a href="delete.php">Delete Student</a></li>
         </div>
-        <div class="container">
+        <div class="sub-container">
             <li><a href="retrive.php">Retrieve Data</a></li>
         </div>
     </ul>
