@@ -21,16 +21,16 @@
 </header>
 <div class="container">
     <h2>Welcome to Student Management System </h2>
-    <p>Select what do you want to do:</p>
+    <h3>Select what do you want to do:</h3>
     <ul>
         <div class="container">
-            <li><a href="sql_injection.php">SQL Injection</a></li>
+            <li><a href="add.php">Add Student</a></li>
         </div>
         <div class="container">
-            <li><a href="xss.php">Cross-Site Scripting (XSS)</a></li>
+            <li><a href="delete.php">Delete Student</a></li>
         </div>
         <div class="container">
-            <li><a href="csrf.php">Cross-Site Request Forgery (CSRF)</a></li>
+            <li><a href="retrive.php">Retrieve Data</a></li>
         </div>
     </ul>
 </div>
