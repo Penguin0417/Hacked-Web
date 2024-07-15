@@ -16,7 +16,7 @@
 
       
         <h1>Logout your account</h1>
-        <img src="Styles\images.jpg">
+        <img src="Style\images.jpg">
         <button onclick="location.href='login.php'">Logout</button>
        
     </div>
