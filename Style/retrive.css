@@ -55,31 +55,6 @@ header nav ul li a {
 header nav ul li a:hover{
     background-color: #555;
 }
-header nav ul li ul {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    z-index: 1;
-    min-width: 160px; /* Adjust as needed */
-}
-
-header nav ul li:hover ul {
-    display: block;
-}
-
-header nav ul li ul li {
-    width: 100%;
-}
-
-header nav ul li ul li a {
-    padding: 10px 20px;
-    display: block;
-    transition: background-color 0.3s ease;
-}
-
-header nav ul li ul li a:hover {
-    background-color: #555;
-}
 
 footer {
     text-align: center;
@@ -129,3 +104,26 @@ footer {
   .table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="submit"]{
+    width: relative;
+    background-color: aquamarine;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+button:hover {
+    transform: translateY(-5px);
+}
