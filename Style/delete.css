@@ -35,7 +35,6 @@ header nav ul li a {
     text-decoration: none;
     padding: 10px 20px;
     display: block;
-    transition: background-color 0.3s ease;
 }
 
 header nav ul li ul {
@@ -43,7 +42,7 @@ header nav ul li ul {
     position: absolute;
     background-color: #333;
     z-index: 1;
-    min-width: 160px; /* Adjust as needed */
+    min-width: 160px;
 }
 
 header nav ul li:hover ul {
@@ -69,11 +68,8 @@ header nav ul li ul li a:hover {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease-out;
 }
-.container:hover{
-    transform: translateY(-50px);
-}
+
 input[type="text"] {
     width: 100%;
     padding: 10px;
@@ -81,13 +77,11 @@ input[type="text"] {
 }
 
 input[type="submit"]{
-    width: 40px;
+    width: relative;
     background-color: aquamarine;
     padding: 10px;
     text-align: center;
-}
-
-input[type="submit"]:hover{
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -100,4 +94,11 @@ footer {
     bottom: 0px;
     right: 0px;
     left: 0px;
+}
+button {
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+button:hover {
+    transform: translateY(-5px);
 }

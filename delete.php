@@ -14,21 +14,19 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="#">Student info</a></li>
             <li><a href="#">Courses</a></li>
-            <li><a href="#">Announcement</a></li>
-            <li><a href="#">About Us</a></li>
         </ul>
     </nav>
 </header>
 <div class="container">
-    <h2>ADD STUDENT </h2>
-    <h3>Fill the details to add student: </h3>
-    <form class="containeer" action="" method="post">
-        <h1>Delete Entry</h1>
-        <h3>Enter the roll no to delete that entry:</h3>
+    <h1>Delete Entry</h1>
+    <h3>Enter the roll no to delete that entry:</h3>
+    <form class="containeer" action="delete.php" method="post">
         <p>
             Roll No: *<input type="text" name="rollno" placeholder="Type Your Roll No" required>
         </p>
-        <input type="submit" value="Delete">
+        <button>
+            <input type="submit" value="Delete">
+        </button>
     </form>
 </div>
 <footer>
@@ -40,35 +38,39 @@
 <?php
 require_once "config.php";
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $sql = "INSERT INTO studentdetails (rollno, uname, dob, emailid, branch, phoneno) VALUES (?,?,?,?,?,?)";
-
-    $stmt = mysqli_prepare($conn, $sql);
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sssssi", $param_rollno, $param_uname, $param_dob, $param_emailid, $param_branch, $param_phoneno);
-
-        // Set these parameters
-        $param_rollno = trim($_POST['rollno']);
-        $param_uname = trim($_POST['realname']);
-        $param_dob = trim($_POST['dob']);
-        $param_emailid = trim($_POST["emailid"]);
-        $param_branch = trim($_POST["branch"]);
-        $param_phoneno = trim($_POST["phoneno"]);
-
-        // Try to execute the query
-        if (mysqli_stmt_execute($stmt)) {
-            // No output before the header()
-            header('Location: add.php');
-            echo "<script>alert('You have successfully logged out!');</script>";
-            exit; // Stop executing the script to prevent further output
-        } else {
-            $error = mysqli_stmt_error($stmt);
-            echo "Something went wrong: $error";
-        }
-    }
-    mysqli_stmt_close($stmt);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-mysqli_close($conn);
+// Primary key value to delete
+$primary_key_value = trim($_POST["rollno"]); // Replace with the actual primary key value
+
+// Table name
+$table_name = 'studentdetails'; // Replace with the actual table name
+
+// Primary key column name
+$primary_key_column = 'rollno'; // Replace with the actual primary key column name
+
+// Delete query
+$query = "DELETE FROM $table_name WHERE $primary_key_column = ?";
+
+// Prepare statement
+$stmt = $conn->prepare($query);
+
+// Bind parameter
+$stmt->bind_param("s", $primary_key_value);
+
+// Execute query
+if ($stmt->execute()) {
+    echo "<script>
+        alert('Entry Deleted Successfully');
+            </script>";
+} else {
+    echo "Error deleting record: " . $stmt->error;
+}
+
+// Close statement and connection
+$stmt->close();
+$conn->close();
 ?>
