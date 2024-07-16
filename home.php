@@ -13,8 +13,8 @@
         <ul>
             <li><a href="home.php">Home</a></li>
             <li><a href="retrive.php">Student info</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a class="left" href='logout.php'>Logout</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href='logout.php'>Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -25,11 +25,14 @@
         <div class="sub-container" onclick="openadd()">
             <li><a href="add.php">Add Student</a></li>
         </div>
-        <div class="sub-container" onclick="opendelete()">
-            <li><a href="delete.php">Delete Student</a></li>
+        <div class="sub-container" onclick="openupdate()">
+            <li><a href="update.php">Update Student</a></li>
         </div>
         <div class="sub-container" onclick="openretrive()">
             <li><a href="retrive.php">Retrieve Data</a></li>
+        </div>
+        <div class="sub-container" onclick="opendelete()">
+            <li><a href="delete.php">Delete Student</a></li>
         </div>
     </ul>
 </div>
@@ -41,6 +44,9 @@
 <script>
 function openadd() {
   window.open("add.php", "_blank");
+}
+function openupdate() {
+  window.open("update.php", "_blank");
 }
 function opendelete() {
   window.open("delete.php", "_blank");

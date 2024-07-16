@@ -20,7 +20,7 @@
                 <br><br>
             <label for="psw"><b>Password</b></label>
 
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password">
             <br><br>
             <input type="submit" value="Login" name="login_Btn">
             <br>
@@ -41,7 +41,7 @@ if(isset($_POST['login_Btn'])){
     $password=$_POST['password'];
     $sql="SELECT * FROM WebsiteLogin.users WHERE username = '$username'";
     $result = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_assoc($result)){
+    if($row = mysqli_fetch_assoc($result)){
         $resultPassword = $row['password'];
         if($password==$resultPassword){
             header('Location:home.php');
@@ -51,4 +51,3 @@ if(isset($_POST['login_Btn'])){
     }
 }
 ?>
-!
