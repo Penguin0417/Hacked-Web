@@ -14,6 +14,7 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="retrive.php">Student info</a></li>
             <li><a href="#">About Us</a></li>
+            <li><a class="left" href='logout.php'>Logout</a></li>
         </ul>
     </nav>
 </header>

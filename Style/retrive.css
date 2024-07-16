@@ -52,7 +52,9 @@ header nav ul li a {
     display: block;
     transition: background-color 0.3s ease;
 }
-
+header nav ul li a:hover{
+    background-color: #555;
+}
 header nav ul li ul {
     display: none;
     position: absolute;

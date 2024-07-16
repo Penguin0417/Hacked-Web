@@ -39,6 +39,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+   
 }
 
 header .container {
@@ -65,7 +66,9 @@ header nav ul li a {
     display: block;
     transition: background-color 0.3s ease;
 }
-
+header nav ul li a:hover{
+    background-color: #555;
+}
 header nav ul li ul {
     display: none;
     position: absolute;
@@ -101,4 +104,12 @@ footer {
     bottom: 0px;
     right: 0px;
     left: 0px;
+}
+button{
+    position: fixed;
+    right: 0;
+}
+.left{
+    position: relative;
+    float: left;
 }

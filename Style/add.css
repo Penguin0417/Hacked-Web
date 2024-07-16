@@ -74,10 +74,10 @@ header nav ul li ul li a {
     display: block;
     transition: background-color 0.3s ease;
 }
-
-header nav ul li ul li a:hover {
+header nav ul li a:hover{
     background-color: #555;
 }
+
 body{
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
