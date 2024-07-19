@@ -25,9 +25,8 @@
             <input type="submit" value="Login" name="login_Btn">
             <br>
         </form>
-        <a href="register.php" target="page"><button>New Registeration</button></a>
-        
     </div>
+    <center>Don't have an account?<a href="register.php" target="page">Register</a></center>
     <footer>
         <p>&copy; Student Management System</p>
     </footer>

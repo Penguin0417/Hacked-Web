@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulnerable Website Demonstration</title>
-    <link rel="stylesheet" href="Style/home.css">
+    <link rel="stylesheet" href="Style/retrive.css">
 </head>
 <body>
 <header>
@@ -21,15 +21,14 @@
 
 <div class="container">
     <h2>Retrive Student</h2>
-    <p>Showing details of all student: </p>
-    <form action="" method="post">
+    <p>Write roll no to show it details: </p>
+    <form id="myForm" action="" method="post">
         <p>
-            Roll No: *<input type="text" name="rollno" placeholder="Type Your Roll No" required>
+            Roll No: *<input type="text" id="userrollno" name="rollno" placeholder="Type Your Roll No">
         </p>
-        <button onclick="retrivedata()">
-            <input type="submit" value="Delete">
-        </button>
+        <input type="submit" value="Retrive">
     </form>
+    <br>
     <div id="table-container"></div>
 </div>
 <footer>
@@ -39,52 +38,67 @@
 </html>
 
 <script>
-    function retrivedata() {
-        // Create a function to fetch the data from the PHP server
-        function fetchData() {
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
+    // Get the form element
+    var form = document.getElementById("myForm");
 
-            // Set the request method and URL
-            xhr.open("GET", "data.php", true);
+    // Add an event listener to the form submission
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // prevent default form submission behavior
 
-            // Set the request headers
-            xhr.setRequestHeader("Content-Type", "application/json");
-
-            // Send the request
-            xhr.send();
-
-            // Handle the response
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Parse the JSON data
-                    var data = JSON.parse(xhr.responseText);
-
-                    // Create a table element
-                    var table = document.createElement("table");
-                    table.border = "1";
-
-                    // Create a table header row
-                    var headerRow = document.createElement("tr");
-                    headerRow.innerHTML = "<th>roll no</th><th>student name</th><th>dob</th><th>email id</th><th>branch</th><th>phone no</th>";
-                    table.appendChild(headerRow);
-
-                    // Create table rows and cells
-                    for (var i = 0; i < data.length; i++) {
-                        var row = document.createElement("tr");
-                        row.innerHTML = "<td>" + data[i].rollno + "</td><td>" + data[i].uname + "</td><td>" + data[i].dob + "</td><td>" + data[i].emailid + "</td><td>" + data[i].branch + "</td><td>" + data[i].phoneno + "</td>";
-                        table.appendChild(row);
-                    }
-
-                    // Add the table to the HTML page
-                    document.getElementById("table-container").appendChild(table);
-                } else {
-                    console.error("Error fetching data:", xhr.statusText);
-                }
-            };
+        // Check if the form is valid
+        if (document.getElementById("userrollno").value !== "") {
+            fetchData();
+        } else {
+            alert("Please enter a roll no.");
         }
+    });
 
-        // Call the function to fetch the data
-        fetchData();
+    // Create a function to fetch the data from the PHP server
+    function fetchData() {
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Set the request method and URL
+        xhr.open("POST", "retrivedata.php", true);
+
+        // Set the request headers
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Send the request with the roll no as a parameter
+        xhr.send("rollno=" + document.getElementById("userrollno").value);
+
+        // Handle the response
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Parse the JSON data
+                var data = JSON.parse(xhr.responseText);
+
+                // Create a table element
+                var table = document.createElement("table");
+                table.border = "1";
+
+                // Create a table header row
+                var headerRow = document.createElement("tr");
+                headerRow.innerHTML = "<th>roll no</th><th>student name</th><th>Gender</th><th>dob</th><th>email id</th><th>branch</th><th>phone no</th>";
+                table.appendChild(headerRow);
+
+                // Create table rows and cells
+                if (data) {
+                    var row = document.createElement("tr");
+                    row.innerHTML = "<td>" + data.rollno + "</td><td>" + data.uname + "</td><td>" + data.gender + "</td><td>" + data.dob + "</td><td>" + data.emailid + "</td><td>" + data.branch + "</td><td>" + data.phoneno + "</td>";
+                    table.appendChild(row);
+                } else {
+                    var row = document.createElement("tr");
+                    row.innerHTML = "<td colspan='7'>No student found with this roll no.</td>";
+                    table.appendChild(row);
+                }
+
+                // Add the table to the HTML page
+                document.getElementById("table-container").innerHTML = ""; // clear the container
+                document.getElementById("table-container").appendChild(table);
+            } else {
+                console.error("Error fetching data:", xhr.statusText);
+            }
+        }
     }
 </script>

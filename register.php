@@ -42,6 +42,9 @@
         <hr>
         <input type="submit" value="Register">
     </form>
+    <footer>
+        <p>&copy; Student Management System</p>
+    </footer>
 </body>
 </html>
 
@@ -112,9 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             // Try to execute the query
             if (mysqli_stmt_execute($stmt)) {
-                // No output before the header()
-                header('Location: login.php');
-                exit; // Stop executing the script to prevent further output
+                ?>
+            <script>
+                alert('User added Successfully');
+                window.location.href = 'login.php'; 
+            </script>
+            <?php
             } else {
                 $error = mysqli_stmt_error($stmt);
                 echo "Something went wrong: $error";

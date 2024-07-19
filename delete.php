@@ -12,8 +12,9 @@
     <nav>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="#">Student info</a></li>
-            <li><a href="#">Courses</a></li>
+            <li><a href="retrive.php">Student info</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href='logout.php'>Logout</a></li>
         </ul>
     </nav>
 </header>

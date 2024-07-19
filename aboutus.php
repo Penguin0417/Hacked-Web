@@ -19,22 +19,7 @@
     </nav>
 </header>
 <div class="container">
-    <h2>Welcome to Student Management System </h2>
-    <h3>Select what do you want to do:</h3>
-    <ul>
-        <div class="sub-container" onclick="openadd()">
-            <li><a href="add.php">Add Student</a></li>
-        </div>
-        <div class="sub-container" onclick="openupdate()">
-            <li><a href="update.php">Update Student</a></li>
-        </div>
-        <div class="sub-container" onclick="openretrive()">
-            <li><a href="retrive.php">Retrieve Data</a></li>
-        </div>
-        <div class="sub-container" onclick="opendelete()">
-            <li><a href="delete.php">Delete Student</a></li>
-        </div>
-    </ul>
+    
 </div>
 <footer>
     <p>&copy; Student Management System</p>
