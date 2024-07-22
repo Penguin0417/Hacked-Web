@@ -32,7 +32,7 @@
             <li><a href="retrive.php">Retrieve Data</a></li>
         </div>
         <div class="sub-container" onclick="opendelete()">
-            <li><a href="delete.php">Delete Student</a></li>
+            <li><a href="delete.html">Delete Student</a></li>
         </div>
     </ul>
 </div>
@@ -41,17 +41,3 @@
 </footer>
 </body>
 </html>
-<script>
-function openadd() {
-  window.open("add.php", "_blank");
-}
-function openupdate() {
-  window.open("update.php", "_blank");
-}
-function opendelete() {
-  window.open("delete.php", "_blank");
-}
-function openretrive() {
-  window.open("retrive.php", "_blank");
-}
-</script>
